@@ -1,7 +1,5 @@
 package linkedList.doubleLinkedList;
 
-import javax.activity.InvalidActivityException;
-
 import linkedList.Node;
 
 /**
@@ -11,22 +9,23 @@ import linkedList.Node;
 
 public class DoubleLinkedList {
 
-	
-
-	
 		Node head;
 		int size = 0;
+		
 		public DoubleLinkedList() {
+			//head as senital node
 			Node head = new Node(null,null,null);
 			this.head = head;
 		}
-
+		
+		// adding a node to front of the list
 		public void addFront(String data){
 			Node newNode = new Node(data,head.next,head);
 			head.setNext(newNode);
 			size++;
 		}
 		
+		// adding a node at the end of the list
 		public void addLast(String data){
 			Node newNode = new Node(data);
 			Node current = head;
@@ -39,11 +38,12 @@ public class DoubleLinkedList {
 			size++;
 		}
 		
-		public void addIndex(String data,int index) throws InvalidActivityException{
+		// adding a node at particular index
+		public void addIndex(String data,int index) throws Exception{
 			Node newNode = new Node(data);
 			Node current = head;
 			if(index > size){
-				throw new InvalidActivityException("Index Can't be greater than Size of List");
+				throw new Exception("Index Can't be greater than Size of List");
 			}
 			
 			for(int i=0;i<=index;i++){
@@ -74,11 +74,11 @@ public class DoubleLinkedList {
 			size--;
 		}
 		
-		public void removeIndex(int index) throws InvalidActivityException{
+		public void removeIndex(int index) throws Exception{
 			
 			Node current = head;
 			if(index > size){
-				throw new InvalidActivityException("Index Can't be greater than Size of List");
+				throw new Exception("Index Can't be greater than Size of List");
 			}
 			
 			for(int i=0;i< index;i++){
@@ -102,7 +102,7 @@ public class DoubleLinkedList {
 			l1.addFront("1");
 			try {
 				l1.addIndex("3", 1);
-			} catch (InvalidActivityException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -159,7 +159,7 @@ public class DoubleLinkedList {
 				l1.removeIndex(4);
 				//remove 10
 				l1.removeIndex(4);
-			} catch (InvalidActivityException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

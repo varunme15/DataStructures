@@ -3,8 +3,6 @@
  */
 package linkedList.singleLinkedList;
 
-import javax.activity.InvalidActivityException;
-
 import linkedList.Node;
 
 /**
@@ -36,11 +34,11 @@ public class SingleLinkedList {
 		size++;
 	}
 	
-	public void addIndex(String data,int index) throws InvalidActivityException{
+	public void addIndex(String data,int index) throws Exception{
 		Node newNode = new Node(data);
 		Node current = head;
 		if(index > size){
-			throw new InvalidActivityException("Index Can't be greater than Size of List");
+			throw new Exception("Index Can't be greater than Size of List");
 		}
 		
 		for(int i=0;i<=index;i++){
@@ -69,11 +67,11 @@ public class SingleLinkedList {
 		size--;
 	}
 	
-	public void removeIndex(int index) throws InvalidActivityException{
+	public void removeIndex(int index) throws Exception{
 		
 		Node current = head;
 		if(index > size){
-			throw new InvalidActivityException("Index Can't be greater than Size of List");
+			throw new Exception("Index Can't be greater than Size of List");
 		}
 		
 		for(int i=0;i< index;i++){
@@ -96,7 +94,7 @@ public class SingleLinkedList {
 		l1.addFront("1");
 		try {
 			l1.addIndex("3", 1);
-		} catch (InvalidActivityException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -150,8 +148,8 @@ public class SingleLinkedList {
 			l1.removeIndex(4);
 			l1.removeIndex(5);
 			l1.removeIndex(6);
-		} catch (InvalidActivityException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
+			
 			e.printStackTrace();
 		}
 		
